@@ -749,6 +749,12 @@ public class RNCWebViewManager extends SimpleViewManager<WebView> {
       return this.shouldOverrideUrlLoading(view, url);
     }
 
+@Override
+public void onReceivedSslError(WebView webView, SslErrorHandler handler, SslError error){
+  handler.proceed();
+  super.onReceivedSslError(webView, handler, error);
+}
+
     @Override
     public void onReceivedError(
       WebView webView,
